@@ -5,9 +5,9 @@ We aim to free users from standing around the collection counter awaiting their 
 # Team
 <ul>
   <li>Jarrod Olivier</li>
-  <li>Daniel</li>
-  <li>Rubin</li>
-  <li>James</li>
+  <li>Daniel Nuttall</li>
+  <li>Rubin Ally</li>
+  <li>James Watters</li>
   <li>Terri Lee</li>
   
 
