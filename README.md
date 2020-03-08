@@ -4,10 +4,10 @@ We aim to free users from standing around the collection counter awaiting their 
 
 # Team
 <ul>
-  <li>Jarrod Olivier</li>
-  <li>Daniel Nuttall</li>
-  <li>Rubin Ally</li>
-  <li>James Watters</li>
-  <li>Terri Lee</li>
+  <li>Jarrod Olivier (linkedin.com/in/jarrod-olivier-95a60a148)</li>
+  <li>Daniel Nuttall (linkedin.com/in/daniel-nuttall-za)</li>
+  <li>Rubin Ally (linkedin.com/in/rubin-ally-370b88184)</li>
+  <li>James Watters (linkedin.com/in/jamescwatters)</li>
+  <li>Terri Lee (linkedin.com/in/terri-lee-685676138)</li>
   
 
