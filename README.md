@@ -4,7 +4,6 @@ We aim to free users from standing around the collection counter awaiting their 
 
 # Team
 <ul>
-  <li>Daniel Nuttall (linkedin.com/in/daniel-nuttall-za)</li>
   <li>Rubin Ally (linkedin.com/in/rubin-ally-370b88184)</li>
   <li>James Watters (linkedin.com/in/jamescwatters)</li>
   <li>Nathan Garces (linkedin.com/in/nathan-garces)</li>
