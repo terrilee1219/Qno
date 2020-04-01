@@ -6,8 +6,13 @@
 //Packages
 import 'package:flutter/material.dart';
 
+//Constants
+import './constants/theme_colors.dart';
+
 //Screens
 import './screens/home_screen.dart';
+import './screens/signin_screen.dart';
+import './screens/signup_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,11 +24,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Qno",
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: ThemeColors.purpleSwatch,
       ),
       //home: HomeScreen(), Set the current screen being developed.
+      home: SignInScreen(),
       routes: {
         HomeScreen.routeName : (ctx) => HomeScreen(),
+        SignInScreen.routeName : (ctx) => SignInScreen(),
+        SignupScreen.routeName : (ctx) => SignupScreen(),
       },
 
     );
