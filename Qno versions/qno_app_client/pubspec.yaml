@@ -49,6 +49,10 @@ flutter:
   assets:
     - assets/images/Qno.png
     - assets/images/NfcIcon.svg
+    - assets/images/icon_facebook.svg
+    - assets/images/icon_google.svg
+    - assets/images/icon_guest.svg
+    - assets/images/icon_twitter.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

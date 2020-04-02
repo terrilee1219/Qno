@@ -6,6 +6,9 @@ import 'package:qnoclient/constants/theme_colors.dart';
 
 //Widget Imports
 import '../widgets/signin_form.dart';
+import '../widgets/divider_with_center_text.dart';
+import '../widgets/rich_text_button.dart';
+import '../widgets/social_media_buttons.dart';
 
 //Modal Imports
 import '../Modals/User.dart';
@@ -40,7 +43,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
     return Scaffold(
       body: Container(
-        width: double.infinity,
+        width: deviceSize.width,
+        height: deviceSize.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -52,6 +56,15 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: SigninForm(formKey: _formKey, user: _user, onSubmit: signIn),
+            ),
+            SizedBox(height: deviceSize.height * 0.01,),
+            Container(
+              padding: EdgeInsets.only(right: 25),
+              alignment: Alignment.centerRight,
+              child: RichTextButton(
+                onPressed: (){ print("Password Forgotten"); },
+                normalText: "Forgot your password?",
+              ),
             ),
             SizedBox(height: deviceSize.height * 0.03,),
             Container(
@@ -65,17 +78,21 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             SizedBox(height: deviceSize.height * 0.03,),
-            GestureDetector(
-              onTap: () => Navigator.of(context).pushReplacementNamed(SignupScreen.routeName),
-              child: RichText(
-                text: TextSpan(
-                  text: "Don\'t have an account?",
-                  style: TextStyle(fontFamily: "Lato", fontSize: 12, color: ThemeColors.lightGrey),
-                  children: <TextSpan>[
-                    TextSpan(text: '  Sign up', style: TextStyle(fontFamily: "Lato", fontSize: 12, color: ThemeColors.purpleSwatch)),
-                  ],
-                ),
-              ),
+            RichTextButton(
+              onPressed: (){Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);},
+              normalText: "Don\'t have an account?",
+              highlightedText: '  Sign up',
+            ),
+            SizedBox(height: deviceSize.height * 0.05,),
+            DividerWithText(text: "OR",),
+            SizedBox(height: deviceSize.height * 0.04,),
+            SocialMediaButtons(state: CurrentState.Signin,),
+            Expanded(
+              child: SizedBox(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: RichTextButton(onPressed: (){}, normalText: "T&C'S apply.",),
             ),
           ],
         ),

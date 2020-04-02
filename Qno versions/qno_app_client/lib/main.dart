@@ -31,7 +31,6 @@ class MyApp extends StatelessWidget {
         SignInScreen.routeName : (ctx) => SignInScreen(),
         SignupScreen.routeName : (ctx) => SignupScreen(),
       },
-
     );
   }
 }
