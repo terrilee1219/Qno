@@ -1,9 +1,7 @@
 /// Qno is a smart coaster paging app designed with flutter.
 /// This is Qno v0.1 and is a basic proof of concept which has no sophisticated communication between client and nfc.
 
-
-// Imports //
-//Packages
+//Package Imports
 import 'package:flutter/material.dart';
 
 //Constants
