@@ -17,6 +17,13 @@ class _SigninFormState extends State<SigninForm> {
   FocusNode _passwordFocusNode = FocusNode();
 
   @override
+  void dispose() {
+    //Dispose to prevent memory leaks.
+    _passwordFocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     //In app variables
     var deviceSize = MediaQuery.of(context).size;

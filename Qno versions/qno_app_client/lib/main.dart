@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: ThemeColors.purpleSwatch,
       ),
       //home: HomeScreen(), Set the current screen being developed.
-      home: SignInScreen(),
+      home: SignupScreen(),
       routes: {
         HomeScreen.routeName : (ctx) => HomeScreen(),
         SignInScreen.routeName : (ctx) => SignInScreen(),
