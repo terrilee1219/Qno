@@ -58,7 +58,7 @@ class _SigninFormState extends State<SigninForm> {
               widget.user.email = value.trim();
             },
           ),
-          SizedBox(height: deviceSize.height * 0.03,),
+          SizedBox(height: deviceSize.height * 0.02,),
           TextFormField(
             validator: (value){
               if(value.isEmpty){

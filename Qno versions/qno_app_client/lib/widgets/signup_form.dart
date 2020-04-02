@@ -18,30 +18,19 @@ class _SignupFormState extends State<SignupForm> {
   FocusNode _emailFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
   FocusNode _confirmPasswordFocusNode = FocusNode();
+  String _passwordValue = "";
 
-  TextEditingController _passwordController = TextEditingController();
-  
-  bool _isInit = true;
+  static const double _gapBetweenTextFields = 0.022;
 
   @override
   void dispose() {
     //Dispose controllers and focus nodes to prevent a memory leak.
-    _passwordController.dispose();
     _emailFocusNode.dispose();
     _passwordFocusNode.dispose();
     _confirmPasswordFocusNode.dispose();
     super.dispose();
   }
 
-  @override
-  void didChangeDependencies() {
-    if(_isInit){
-      _passwordController.addListener(() { })
-    }
-    _isInit = false;
-    super.didChangeDependencies();
-  }
-  
   @override
   Widget build(BuildContext context) {
     //In app variables
@@ -52,6 +41,9 @@ class _SignupFormState extends State<SignupForm> {
       hintStyle: TextStyle(fontFamily: "Lato", fontSize: 14, color: Colors.grey),
       enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: ThemeColors.purpleSwatch, width: 1)),
       contentPadding: EdgeInsets.all(10),
+      errorStyle: TextStyle(fontFamily: "Lato", color: Colors.red, fontSize: 12),
+
+
     );
   
     return Form(
@@ -63,7 +55,7 @@ class _SignupFormState extends State<SignupForm> {
               if(value.isEmpty){
                 return "Please enter your full name.";
               }
-              if(!value.contains("@") || !value.contains(".") || !value.contains("-") || !value.contains("_")){
+              if(value.contains("@") || value.contains(".") || value.contains("-") || value.contains("_")){
                 return "Please enter a valid name.";
               }
               return null;
@@ -77,7 +69,7 @@ class _SignupFormState extends State<SignupForm> {
               widget.user.fullName = value.trim();
             },
           ),
-          SizedBox(height: deviceSize.height * 0.03,),
+          SizedBox(height: deviceSize.height * _gapBetweenTextFields,),
           TextFormField(
             validator: (value){
               if(value.isEmpty){
@@ -98,7 +90,7 @@ class _SignupFormState extends State<SignupForm> {
               widget.user.email = value.trim();
             },
           ),
-          SizedBox(height: deviceSize.height * 0.03,),
+          SizedBox(height: deviceSize.height * _gapBetweenTextFields,),
           TextFormField(
             validator: (value){
               if(value.isEmpty){
@@ -107,36 +99,37 @@ class _SignupFormState extends State<SignupForm> {
               return null;
             },
             focusNode: _passwordFocusNode,
+            textInputAction: TextInputAction.next,
             decoration: inputFieldDecoration.copyWith(
                 hintText: "Password"
             ),
-            controller: _passwordController,
+            onChanged: (value) => setState((){
+            _passwordValue = value;
+            }),
             onSaved: (value){
               widget.user.password = value.trim();
             },
             onFieldSubmitted: (_) => _confirmPasswordFocusNode.requestFocus(),
           ),
-          SizedBox(height: deviceSize.height * 0.03,),
+          SizedBox(height: deviceSize.height * _gapBetweenTextFields,),
           TextFormField(
             validator: (value){
               if(value.isEmpty){
                 return "Please enter a password.";
               }
-              if(value != _passwordController.)
+              if(value != _passwordValue){
+                return "The passwords do not match.";
+              }
               return null;
             },
             focusNode: _confirmPasswordFocusNode,
             decoration: inputFieldDecoration.copyWith(
                 hintText: "Confirm Password"
             ),
-            onSaved: (value){
-              widget.user.password = value.trim();
-            },
             onFieldSubmitted: (_) => widget.onSubmit(),
           ),
         ],
       ),
     );
-
   }
 }
