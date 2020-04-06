@@ -1,7 +1,7 @@
 //Imports
 import 'package:flutter/material.dart';
 import 'package:qnoclient/constants/theme_colors.dart';
-import '../Modals/User.dart';
+import '../modals/User.dart';
 
 class SignupForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -53,7 +53,7 @@ class _SignupFormState extends State<SignupForm> {
           TextFormField(
             validator: (value){
               if(value.isEmpty){
-                return "Please enter your full name.";
+                return "Full Name cannot be left blank.";
               }
               if(value.contains("@") || value.contains(".") || value.contains("-") || value.contains("_")){
                 return "Please enter a valid name.";
@@ -73,7 +73,7 @@ class _SignupFormState extends State<SignupForm> {
           TextFormField(
             validator: (value){
               if(value.isEmpty){
-                return "Please enter an email address.";
+                return "Email cannot be left blank.";
               }
               if(!value.contains("@") || !value.contains(".")){
                 return "Please enter a valid email address.";
@@ -94,7 +94,10 @@ class _SignupFormState extends State<SignupForm> {
           TextFormField(
             validator: (value){
               if(value.isEmpty){
-                return "Please enter a password.";
+                return "Password cannot be left blank.";
+              }
+              if(value.length < 6){
+                return "Password must be more than 6 characters.";
               }
               return null;
             },
@@ -115,7 +118,7 @@ class _SignupFormState extends State<SignupForm> {
           TextFormField(
             validator: (value){
               if(value.isEmpty){
-                return "Please enter a password.";
+                return "Password cannot be left blank.";
               }
               if(value != _passwordValue){
                 return "The passwords do not match.";

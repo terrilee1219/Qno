@@ -42,7 +42,7 @@ class _SigninFormState extends State<SigninForm> {
           TextFormField(
             validator: (value){
               if(value.isEmpty){
-                return "Please enter an email address.";
+                return "Email cannot be left blank.";
               }
               if(!value.contains("@") || !value.contains(".")){
                 return "Please enter a valid email address.";
@@ -62,7 +62,7 @@ class _SigninFormState extends State<SigninForm> {
           TextFormField(
             validator: (value){
               if(value.isEmpty){
-                return "Please enter a password.";
+                return "Password cannot be left blank.";
               }
               return null;
             },
