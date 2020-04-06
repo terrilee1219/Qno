@@ -12,6 +12,7 @@ import './constants/theme_colors.dart';
 import './screens/home_screen.dart';
 import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
+import './screens/splash_screen.dart';
 
 //Providers
 import 'providers/auth.dart';
@@ -20,25 +21,34 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
+    AuthService _auth = AuthService();
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: AuthService(),
+          value: _auth,
         ),
       ],
       child: MaterialApp(
-          title: "Qno",
-          theme: ThemeData(
-            primarySwatch: ThemeColors.purpleSwatch,
-          ),
-          home: SignupScreen(),
-          routes: {
-            HomeScreen.routeName : (ctx) => HomeScreen(),
-            SignInScreen.routeName : (ctx) => SignInScreen(),
-            SignupScreen.routeName : (ctx) => SignupScreen(),
-          },
+        title: "Qno",
+        theme: ThemeData(
+          primarySwatch: ThemeColors.purpleSwatch,
+        ),
+        home: FutureBuilder(
+                future: _auth.tryAutoLogin(),
+                builder: (ctx, authResult) =>
+                    authResult.connectionState == ConnectionState.waiting
+                        ? SplashScreen()
+                        : (_auth.loggedIn) ? HomeScreen() : SignupScreen(),
+              ),
+        routes: {
+          HomeScreen.routeName: (ctx) => HomeScreen(),
+          SignInScreen.routeName: (ctx) => SignInScreen(),
+          SignupScreen.routeName: (ctx) => SignupScreen(),
+        },
       ),
     );
   }

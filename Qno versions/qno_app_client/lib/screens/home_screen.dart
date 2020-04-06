@@ -4,6 +4,9 @@
 //Imports
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:qnoclient/providers/auth.dart';
+import 'package:qnoclient/screens/signup_screen.dart';
 import '../constants/app_assets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,7 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             GestureDetector(
-              onTap: () => print("pressed"),
+              onTap: (){
+                Provider.of<AuthService>(context, listen: false).signOut();
+                Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
+              },
               child: SvgPicture.asset(Assets.nfcIcon, color: Colors.black, height: 170, width: 170,)
             ),
             SizedBox(height: 25,),
