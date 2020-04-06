@@ -37,7 +37,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: ThemeColors.purpleSwatch,
         ),
-        home: FutureBuilder(
+        home: (_auth.loggedIn)
+            ? HomeScreen()
+            : FutureBuilder(
                 future: _auth.tryAutoLogin(),
                 builder: (ctx, authResult) =>
                     authResult.connectionState == ConnectionState.waiting

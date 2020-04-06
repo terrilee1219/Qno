@@ -14,16 +14,19 @@ class RichTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => onPressed(),
-      child: RichText(
-        text: TextSpan(
-          text: normalText,
-          style: TextStyle(fontFamily: "Lato", fontSize: 12, color: ThemeColors.lightGrey),
-          children: <TextSpan>[
-            (highlightedText.isNotEmpty) ?
-            TextSpan(text: highlightedText, style: TextStyle(fontFamily: "Lato", fontSize: 12, color: ThemeColors.purpleSwatch))
-            :
-            TextSpan(),
-          ],
+      child: Container(
+        padding: EdgeInsets.all(4.0),
+        child: RichText(
+          text: TextSpan(
+            text: normalText,
+            style: TextStyle(fontFamily: "Lato", fontSize: 12, color: ThemeColors.lightGrey),
+            children: <TextSpan>[
+              (highlightedText.isNotEmpty) ?
+              TextSpan(text: highlightedText, style: TextStyle(fontFamily: "Lato", fontSize: 12, color: ThemeColors.purpleSwatch))
+              :
+              TextSpan(),
+            ],
+          ),
         ),
       ),
     );
