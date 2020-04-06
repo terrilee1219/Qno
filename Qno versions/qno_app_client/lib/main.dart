@@ -3,26 +3,55 @@
 
 //Package Imports
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+//Constants
+import './constants/theme_colors.dart';
 
 //Screens
 import './screens/home_screen.dart';
+import './screens/signin_screen.dart';
+import './screens/signup_screen.dart';
+import './screens/splash_screen.dart';
+
+//Providers
+import 'providers/auth.dart';
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Qno",
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
+    AuthService _auth = AuthService();
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: _auth,
+        ),
+      ],
+      child: MaterialApp(
+        title: "Qno",
+        theme: ThemeData(
+          primarySwatch: ThemeColors.purpleSwatch,
+        ),
+        home: (_auth.loggedIn)
+            ? HomeScreen()
+            : FutureBuilder(
+                future: _auth.tryAutoLogin(),
+                builder: (ctx, authResult) =>
+                    authResult.connectionState == ConnectionState.waiting
+                        ? SplashScreen()
+                        : (_auth.loggedIn) ? HomeScreen() : SignupScreen(),
+              ),
+        routes: {
+          HomeScreen.routeName: (ctx) => HomeScreen(),
+          SignInScreen.routeName: (ctx) => SignInScreen(),
+          SignupScreen.routeName: (ctx) => SignupScreen(),
+        },
       ),
-      home: HomeScreen(), //Set the current screen being developed.
-      routes: {
-        //HomeScreen.routeName : (ctx) => HomeScreen(),
-      },
     );
   }
 }

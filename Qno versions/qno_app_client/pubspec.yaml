@@ -24,6 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^0.17.3+1
+  firebase_auth: ^0.15.5+3
+  provider: ^4.0.4
+  shared_preferences: ^0.5.6+3
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -49,6 +52,10 @@ flutter:
   assets:
     - assets/images/Qno.png
     - assets/images/NfcIcon.svg
+    - assets/images/icon_facebook.svg
+    - assets/images/icon_google.svg
+    - assets/images/icon_guest.svg
+    - assets/images/icon_twitter.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -61,15 +68,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+
+    - family: Numans
+      fonts:
+        - asset: assets/fonts/Numans-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
