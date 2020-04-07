@@ -13,6 +13,7 @@ import './screens/home_screen.dart';
 import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
 import './screens/splash_screen.dart';
+import './screens/hamburger_container_screen.dart';
 
 //Providers
 import 'providers/auth.dart';
@@ -37,15 +38,16 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: ThemeColors.purpleSwatch,
         ),
-        home: (_auth.loggedIn)
-            ? HomeScreen()
-            : FutureBuilder(
-                future: _auth.tryAutoLogin(),
-                builder: (ctx, authResult) =>
-                    authResult.connectionState == ConnectionState.waiting
-                        ? SplashScreen()
-                        : (_auth.loggedIn) ? HomeScreen() : SignupScreen(),
-              ),
+        home: HamburgerContainerScreen(),
+//        (_auth.loggedIn)
+//            ? HomeScreen()
+//            : FutureBuilder(
+//                future: _auth.tryAutoLogin(),
+//                builder: (ctx, authResult) =>
+//                    authResult.connectionState == ConnectionState.waiting
+//                        ? SplashScreen()
+//                        : (_auth.loggedIn) ? HomeScreen() : SignupScreen(),
+//              ),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           SignInScreen.routeName: (ctx) => SignInScreen(),

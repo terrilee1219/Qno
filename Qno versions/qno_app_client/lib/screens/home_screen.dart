@@ -27,8 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
         width: double.infinity,
         height: double.infinity,
         child: Column(
@@ -37,8 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             GestureDetector(
               onTap: (){
-                Provider.of<AuthService>(context, listen: false).signOut();
-                Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
               },
               child: SvgPicture.asset(Assets.nfcIcon, color: Colors.black, height: 170, width: 170,)
             ),
@@ -62,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-      ),
     );
   }
 }
