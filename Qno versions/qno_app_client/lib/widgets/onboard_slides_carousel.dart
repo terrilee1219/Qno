@@ -47,6 +47,7 @@ class _OnboardSlidesCarouselState extends State<OnboardSlidesCarousel> {
 
   Widget _sliderPassageText(String text) {
     return Container(
+      width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 40),
         child: Text(
           text,
@@ -128,7 +129,7 @@ class _OnboardSlidesCarouselState extends State<OnboardSlidesCarousel> {
         _sliderPassageText(
             "When you tap your phone, the Qno app will let you know the average waiting time."),
         SizedBox(
-          height: deviceSize.height * 0.05,
+          height: deviceSize.height * 0.06,
         ),
         SvgPicture.asset(
           Assets.slideImageThree,
@@ -136,12 +137,12 @@ class _OnboardSlidesCarouselState extends State<OnboardSlidesCarousel> {
           width: deviceSize.width * 0.46,
         ),
         SizedBox(
-          height: deviceSize.height * 0.05,
+          height: deviceSize.height * 0.06,
         ),
         _sliderPassageText(
             "When your food is ready, you will receive a notification."),
         SizedBox(
-          height: deviceSize.height * 0.05,
+          height: deviceSize.height * 0.06,
         ),
         SvgPicture.asset(
           Assets.slideImageFour,
