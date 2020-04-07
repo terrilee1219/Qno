@@ -60,7 +60,7 @@ class AuthService with ChangeNotifier {
     _authToken = "";
     _email = "";
     _password = "";
-    _saveUserToPrefs();
+    _deleteUserToPrefs();
     return _firebaseAuth.signOut();
   }
 
@@ -97,11 +97,17 @@ class AuthService with ChangeNotifier {
     prefs.setString("userData", json.encode(userData));
   }
 
+  Future _deleteUserToPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.clear();
+  }
+
   Future _loadUserData() async {
     final prefs = await SharedPreferences.getInstance();
     if (!prefs.containsKey("userData")) {
       return false;
     }
+
     final extractedData = json.decode(prefs.getString("userData"));
     _email = extractedData['email'];
     _authToken = extractedData['authToken'];
