@@ -101,6 +101,7 @@ class _SignupFormState extends State<SignupForm> {
               }
               return null;
             },
+            obscureText: true,
             focusNode: _passwordFocusNode,
             textInputAction: TextInputAction.next,
             decoration: inputFieldDecoration.copyWith(
@@ -125,6 +126,7 @@ class _SignupFormState extends State<SignupForm> {
               }
               return null;
             },
+            obscureText: true,
             focusNode: _confirmPasswordFocusNode,
             decoration: inputFieldDecoration.copyWith(
                 hintText: "Confirm Password"

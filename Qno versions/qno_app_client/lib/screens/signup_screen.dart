@@ -2,6 +2,7 @@
 //Package Imports
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qnoclient/screens/hamburger_container_screen.dart';
 import '../providers/auth.dart';
 
 //Constants Imports
@@ -48,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
               setState(() {
                 _isLoading = false;
               });
-          Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+          Navigator.of(context).pushReplacementNamed(HamburgerContainerScreen.routeName);
         });
       } catch (error) {
         await showDialog(
