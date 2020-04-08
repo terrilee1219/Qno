@@ -13,6 +13,7 @@ import './screens/home_screen.dart';
 import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
 import './screens/splash_screen.dart';
+import './screens/onboard_slides_screen.dart';
 
 //Providers
 import 'providers/auth.dart';
@@ -44,12 +45,13 @@ class MyApp extends StatelessWidget {
                 builder: (ctx, authResult) =>
                     authResult.connectionState == ConnectionState.waiting
                         ? SplashScreen()
-                        : (_auth.loggedIn) ? HomeScreen() : SignupScreen(),
+                        : (_auth.loggedIn) ? HomeScreen() : OnboardScreen(),
               ),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           SignInScreen.routeName: (ctx) => SignInScreen(),
           SignupScreen.routeName: (ctx) => SignupScreen(),
+          OnboardScreen.routeName: (ctx) => OnboardScreen(),
         },
       ),
     );

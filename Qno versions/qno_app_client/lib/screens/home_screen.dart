@@ -2,14 +2,22 @@
 /// The home screen will be where the user scans the nfc from.
 
 //Imports
+//Package Imports
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
+//Provider Imports
 import 'package:qnoclient/providers/auth.dart';
 import 'package:qnoclient/providers/nfc.dart';
 import 'package:qnoclient/screens/signup_screen.dart';
 import 'package:qnoclient/widgets/alert_dialog.dart';
+
+//Constant Imports
 import '../constants/app_assets.dart';
+
+//Screen Imports
+import 'package:qnoclient/screens/onboard_slides_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static final String routeName = "/home-screen";
@@ -46,6 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
           messageTitle: "NFC Not Supported",
           message: 'Your Mobile Device Does Not Support NFC',
         );
+      } else {
+        nfc.readNFC(); //Open NFC Stream and Wait for Tap
       }
     }
 
@@ -60,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
             GestureDetector(
               onTap: (){
                 Provider.of<AuthService>(context, listen: false).signOut();
-                Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
+                Navigator.of(context).pushReplacementNamed(OnboardScreen.routeName);
               },
               child: SvgPicture.asset(Assets.nfcIcon, color: Colors.black, height: 170, width: 170,)
             ),
