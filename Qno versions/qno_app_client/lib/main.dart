@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
 //              ),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
+          HamburgerContainerScreen.routeName: (ctx) => HamburgerContainerScreen()
           SignInScreen.routeName: (ctx) => SignInScreen(),
           SignupScreen.routeName: (ctx) => SignupScreen(),
         },
