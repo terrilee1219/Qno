@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qnoclient/providers/auth.dart';
+import 'package:qnoclient/providers/nfc.dart';
 import 'package:qnoclient/screens/signup_screen.dart';
+import 'package:qnoclient/widgets/alert_dialog.dart';
 import '../constants/app_assets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,14 +21,34 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool _nfcSupported;
+  NFCReader nfc = NFCReader();
 
   @override
   void initState() { 
     super.initState();
+
+    //Set the state of the NFC capabilities for the device
+    nfc.getNfcSupport().then((bool result){
+      setState(() {
+        _nfcSupported = result;
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+
+    //Message Displayed if User Does Not Have NFC
+    if(_nfcSupported != null){
+      if(!_nfcSupported) {
+        return CustomAlertDialog(
+          messageTitle: "NFC Not Supported",
+          message: 'Your Mobile Device Does Not Support NFC',
+        );
+      }
+    }
+
     return Scaffold(
       body: Container(
         width: double.infinity,
