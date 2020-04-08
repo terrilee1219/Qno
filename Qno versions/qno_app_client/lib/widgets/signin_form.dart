@@ -66,6 +66,7 @@ class _SigninFormState extends State<SigninForm> {
               }
               return null;
             },
+            obscureText: true,
             focusNode: _passwordFocusNode,
             decoration: inputFieldDecoration.copyWith(
                 hintText: "Password"

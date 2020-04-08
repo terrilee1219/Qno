@@ -34,21 +34,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    //Runtime variable
+    var deviceSize = MediaQuery.of(context).size;
+
     return Container(
         width: double.infinity,
         height: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            SizedBox(height: deviceSize.height * 0.14,),
             GestureDetector(
               onTap: (){
               },
               child: SvgPicture.asset(Assets.nfcIcon, color: Colors.black, height: 170, width: 170,)
             ),
-            SizedBox(height: 25,),
+            SizedBox(height: deviceSize.height * 0.06,),
             Text("Approach the Qno machine", style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.black.withOpacity(0.6))),
-            SizedBox(height: 70,),
+            SizedBox(height: deviceSize.height * 0.1,),
             Container(
               width: 250,
               child: Divider(

@@ -12,6 +12,7 @@ import '../providers/auth.dart';
 //Screen Imports
 import '../screens/home_screen.dart';
 import '../screens/signup_screen.dart';
+import '../screens/how_to_screen.dart';
 
 class HamburgerContainerScreen extends StatefulWidget {
   static const String routeName = "/hamburger-container";
@@ -29,6 +30,9 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
     switch (_currentScreen) {
       case Screen.home:
         return HomeScreen();
+        break;
+      case Screen.howTo:
+        return HowToScreen();
         break;
       case Screen.forgotPassword:
         return null;
@@ -74,6 +78,9 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
     switch (_currentScreen) {
       case Screen.home:
         return "Home";
+        break;
+      case Screen.howTo:
+        return "How to use Qno";
         break;
       case Screen.forgotPassword:
         return "Forgot your password?";
@@ -126,6 +133,7 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
             _listTileBuilder("Home", Icons.home,
                 () => onListTileClicked(Screen.home), Screen.home),
             Divider(),
+            _listTileBuilder("How to use Qno", Icons.help, () => onListTileClicked(Screen.howTo), Screen.howTo),
             Expanded(
               child: Container(),
             ),
@@ -156,7 +164,6 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
                     ),
                   ],
                 );
-
                 showDialog(context: context, builder: (_){ return alert; });
               });
             }, Screen.logout)
@@ -170,6 +177,7 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
 
 enum Screen {
   home,
+  howTo,
   forgotPassword,
   logout,
 }

@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import './constants/theme_colors.dart';
 
 //Screens
-import './screens/home_screen.dart';
 import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
 import './screens/splash_screen.dart';
@@ -39,19 +38,18 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: ThemeColors.purpleSwatch,
         ),
-        home: HamburgerContainerScreen(),
-//        (_auth.loggedIn)
-//            ? HomeScreen()
-//            : FutureBuilder(
-//                future: _auth.tryAutoLogin(),
-//                builder: (ctx, authResult) =>
-//                    authResult.connectionState == ConnectionState.waiting
-//                        ? SplashScreen()
-//                        : (_auth.loggedIn) ? HomeScreen() : SignupScreen(),
-//              ),
+        home:
+        (_auth.loggedIn)
+            ? HamburgerContainerScreen()
+            : FutureBuilder(
+                future: _auth.tryAutoLogin(),
+                builder: (ctx, authResult) =>
+                    authResult.connectionState == ConnectionState.waiting
+                        ? SplashScreen()
+                        : (_auth.loggedIn) ? HamburgerContainerScreen() : SignupScreen(),
+              ),
         routes: {
-          HomeScreen.routeName: (ctx) => HomeScreen(),
-          HamburgerContainerScreen.routeName: (ctx) => HamburgerContainerScreen()
+          HamburgerContainerScreen.routeName: (ctx) => HamburgerContainerScreen(),
           SignInScreen.routeName: (ctx) => SignInScreen(),
           SignupScreen.routeName: (ctx) => SignupScreen(),
           OnboardScreen.routeName: (ctx) => OnboardScreen(),
