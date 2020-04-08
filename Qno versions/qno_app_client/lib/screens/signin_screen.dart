@@ -17,7 +17,7 @@ import '../Modals/User.dart';
 
 //Screen Imports
 import './signup_screen.dart';
-import './home_screen.dart';
+import './hamburger_container_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   //Screen route name
@@ -46,7 +46,7 @@ class _SignInScreenState extends State<SignInScreen> {
           setState(() {
             _isLoading = false;
           });
-          Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+          Navigator.of(context).pushReplacementNamed(HamburgerContainerScreen.routeName);
         });
       } catch (error) {
         await showDialog(
@@ -71,6 +71,10 @@ class _SignInScreenState extends State<SignInScreen> {
         });
       }
     }
+
+    //Get rid of keyboard on pressed enter
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    currentFocus.unfocus();
   }
 
   @override

@@ -8,6 +8,10 @@ import '../constants/app_assets.dart';
 
 class OnboardSlidesCarousel extends StatefulWidget {
   //Class Variables
+  final bool includeHomePage;
+
+  OnboardSlidesCarousel({this.includeHomePage = true});
+
   @override
   _OnboardSlidesCarouselState createState() => _OnboardSlidesCarouselState();
 }
@@ -63,19 +67,20 @@ class _OnboardSlidesCarouselState extends State<OnboardSlidesCarousel> {
     var deviceSize = MediaQuery.of(context).size;
 
     final List<Widget> _slides = [
-      _slideStructure([
-        SizedBox(
-          height: deviceSize.height * 0.125,
-        ),
-        SvgPicture.asset(Assets.nfcLogo,
-            height: deviceSize.height * 0.13,
-            width: deviceSize.width * 0.28,
-            color: ThemeColors.purpleSwatch),
-        SizedBox(
-          height: deviceSize.height * 0.20,
-        ),
-        _sliderHeaderText("Welcome to Qno"),
-      ]),
+      if(widget.includeHomePage)
+        _slideStructure([
+          SizedBox(
+            height: deviceSize.height * 0.125,
+          ),
+          SvgPicture.asset(Assets.nfcLogo,
+              height: deviceSize.height * 0.13,
+              width: deviceSize.width * 0.28,
+              color: ThemeColors.purpleSwatch),
+          SizedBox(
+            height: deviceSize.height * 0.20,
+          ),
+          _sliderHeaderText("Welcome to Qno"),
+        ]),
       _slideStructure([
         SizedBox(
           height: deviceSize.height * 0.08,

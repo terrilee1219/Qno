@@ -26,49 +26,64 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
-  void initState() { 
+  void initState() {
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            GestureDetector(
-              onTap: (){
-                Provider.of<AuthService>(context, listen: false).signOut();
-                Navigator.of(context).pushReplacementNamed(OnboardScreen.routeName);
-              },
-              child: SvgPicture.asset(Assets.nfcIcon, color: Colors.black, height: 170, width: 170,)
+    //Runtime variable
+    var deviceSize = MediaQuery.of(context).size;
+
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            height: deviceSize.height * 0.14,
+          ),
+          GestureDetector(
+              onTap: () {},
+              child: SvgPicture.asset(
+                Assets.nfcIcon,
+                color: Colors.black,
+                height: 170,
+                width: 170,
+              )),
+          SizedBox(
+            height: deviceSize.height * 0.06,
+          ),
+          Text("Approach the Qno machine",
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(color: Colors.black.withOpacity(0.6))),
+          SizedBox(
+            height: deviceSize.height * 0.1,
+          ),
+          Container(
+            width: 250,
+            child: Divider(
+              thickness: 1.5,
+              color: Colors.black.withOpacity(0.3),
             ),
-            SizedBox(height: 25,),
-            Text("Approach the Qno machine", style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.black.withOpacity(0.6))),
-            SizedBox(height: 70,),
-            Container(
-              width: 250,
-              child: Divider(
-                thickness: 1.5,
-                color: Colors.black.withOpacity(0.3),
-              ),
+          ),
+          Text("Welcome to Qno",
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(color: Colors.black.withOpacity(0.6))),
+          Container(
+            width: 250,
+            child: Divider(
+              thickness: 1.5,
+              color: Colors.black.withOpacity(0.3),
             ),
-            Text("Welcome to Qno", style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.black.withOpacity(0.6))),
-            Container(
-              width: 250,
-              child: Divider(
-                thickness: 1.5,
-                color: Colors.black.withOpacity(0.3),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
