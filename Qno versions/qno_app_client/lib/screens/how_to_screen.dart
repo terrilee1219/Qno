@@ -15,7 +15,11 @@ class HowToScreen extends StatelessWidget {
     var deviceSize = MediaQuery.of(context).size;
 
     return Column(
-      children: [OnboardSlidesCarousel(includeHomePage: false,)],
+      children: [
+        OnboardSlidesCarousel(
+          includeHomePage: false,
+        )
+      ],
     );
   }
 }

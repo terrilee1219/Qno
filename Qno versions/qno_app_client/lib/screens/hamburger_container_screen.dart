@@ -134,7 +134,8 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
             _listTileBuilder("Home", Icons.home,
                 () => onListTileClicked(Screen.home), Screen.home),
             Divider(),
-            _listTileBuilder("How to use Qno", Icons.help, () => onListTileClicked(Screen.howTo), Screen.howTo),
+            _listTileBuilder("How to use Qno", Icons.help,
+                () => onListTileClicked(Screen.howTo), Screen.howTo),
             Expanded(
               child: Container(),
             ),
@@ -144,29 +145,35 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
                 () => onListTileClicked(Screen.forgotPassword),
                 Screen.forgotPassword),
             Divider(),
-            _listTileBuilder("Logout", Icons.exit_to_app, (){
-              Future.delayed(Duration.zero, (){
+            _listTileBuilder("Logout", Icons.exit_to_app, () {
+              Future.delayed(Duration.zero, () {
                 AlertDialog alert = AlertDialog(
                   title: Text("Are you sure?"),
                   content: Text("You are about to logout."),
                   actions: [
                     FlatButton(
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.pop(context);
                       },
                       child: Text("Cancel"),
                     ),
                     FlatButton(
-                      onPressed: (){
-                        Provider.of<AuthService>(context, listen: false).signOut();
+                      onPressed: () {
+                        Provider.of<AuthService>(context, listen: false)
+                            .signOut();
                         Navigator.pop(context);
-                        Navigator.of(context).pushReplacementNamed(SignInScreen.routeName);
+                        Navigator.of(context)
+                            .pushReplacementNamed(SignInScreen.routeName);
                       },
                       child: Text("Confirm"),
                     ),
                   ],
                 );
-                showDialog(context: context, builder: (_){ return alert; });
+                showDialog(
+                    context: context,
+                    builder: (_) {
+                      return alert;
+                    });
               });
             }, Screen.logout)
           ],
