@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
                 builder: (ctx, authResult) =>
                     authResult.connectionState == ConnectionState.waiting
                         ? SplashScreen()
-                        : (_auth.loggedIn) ? HamburgerContainerScreen() : SignupScreen(),
+                        : (_auth.loggedIn) ? HamburgerContainerScreen() : OnboardScreen(),
               ),
         routes: {
           HamburgerContainerScreen.routeName: (ctx) => HamburgerContainerScreen(),

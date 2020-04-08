@@ -2,6 +2,7 @@
 //Package Imports
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qnoclient/screens/signin_screen.dart';
 
 //Constants Imports
 import '../constants/theme_colors.dart';
@@ -158,7 +159,8 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
                     FlatButton(
                       onPressed: (){
                         Provider.of<AuthService>(context, listen: false).signOut();
-                        Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
+                        Navigator.pop(context);
+                        Navigator.of(context).pushReplacementNamed(SignInScreen.routeName);
                       },
                       child: Text("Confirm"),
                     ),
