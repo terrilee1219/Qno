@@ -64,6 +64,10 @@ class AuthService with ChangeNotifier {
     return _firebaseAuth.signOut();
   }
 
+  Future sendPasswordChangeEmail() async {
+    await _firebaseAuth.sendPasswordResetEmail(email: "yawiko6623@gotkmail.com");
+  }
+
   void _getUserInformation(FirebaseUser firebaseUser) {
     _getAuthIdToken(firebaseUser);
     if (firebaseUser != null) {

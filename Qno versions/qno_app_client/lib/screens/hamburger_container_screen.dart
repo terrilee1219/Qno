@@ -139,11 +139,6 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
             Expanded(
               child: Container(),
             ),
-            _listTileBuilder(
-                "Forgot your password?",
-                Icons.fingerprint,
-                () => onListTileClicked(Screen.forgotPassword),
-                Screen.forgotPassword),
             Divider(),
             _listTileBuilder("Logout", Icons.exit_to_app, () {
               Future.delayed(Duration.zero, () {
