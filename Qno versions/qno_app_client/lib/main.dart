@@ -14,6 +14,7 @@ import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
 import './screens/splash_screen.dart';
 import './screens/hamburger_container_screen.dart';
+import './screens/onboard_slides_screen.dart';
 
 //Providers
 import 'providers/auth.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
           HamburgerContainerScreen.routeName: (ctx) => HamburgerContainerScreen()
           SignInScreen.routeName: (ctx) => SignInScreen(),
           SignupScreen.routeName: (ctx) => SignupScreen(),
+          OnboardScreen.routeName: (ctx) => OnboardScreen(),
         },
       ),
     );

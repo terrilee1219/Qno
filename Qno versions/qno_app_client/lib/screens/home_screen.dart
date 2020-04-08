@@ -2,12 +2,19 @@
 /// The home screen will be where the user scans the nfc from.
 
 //Imports
+//Package Imports
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
+//Provider Imports
 import 'package:qnoclient/providers/auth.dart';
-import 'package:qnoclient/screens/signup_screen.dart';
+
+//Constant Imports
 import '../constants/app_assets.dart';
+
+//Screen Imports
+import 'package:qnoclient/screens/onboard_slides_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static final String routeName = "/home-screen";
