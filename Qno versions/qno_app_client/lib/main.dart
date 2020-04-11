@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthService _auth = AuthService();
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
