@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
 //Constants
 import './constants/theme_colors.dart';
 
@@ -14,6 +15,7 @@ import './screens/signup_screen.dart';
 import './screens/splash_screen.dart';
 import './screens/hamburger_container_screen.dart';
 import './screens/onboard_slides_screen.dart';
+import './screens/forgot_password_screen.dart';
 
 //Providers
 import 'providers/auth.dart';
@@ -26,7 +28,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthService _auth = AuthService();
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
           SignInScreen.routeName: (ctx) => SignInScreen(),
           SignupScreen.routeName: (ctx) => SignupScreen(),
           OnboardScreen.routeName: (ctx) => OnboardScreen(),
+          ForgotPasswordScreen.routeName: (ctx) => ForgotPasswordScreen()
         },
       ),
     );

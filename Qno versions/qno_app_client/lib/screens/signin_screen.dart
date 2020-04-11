@@ -2,6 +2,7 @@
 //Package Imports
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qnoclient/screens/forgot_password_screen.dart';
 import '../providers/auth.dart';
 import '../constants/theme_colors.dart';
 
@@ -124,7 +125,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       alignment: Alignment.centerRight,
                       child: RichTextButton(
                         onPressed: () {
-                          print("Password Forgotten");
+                          Navigator.pushNamed(context, ForgotPasswordScreen.routeName);
                         },
                         normalText: "Forgot your password?",
                       ),

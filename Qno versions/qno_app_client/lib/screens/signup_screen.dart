@@ -46,10 +46,11 @@ class _SignupScreenState extends State<SignupScreen> {
         await Provider.of<AuthService>(context, listen: false)
             .signUpWithEmail(_user.email, _user.password)
             .then((value) {
-              setState(() {
-                _isLoading = false;
-              });
-          Navigator.of(context).pushReplacementNamed(HamburgerContainerScreen.routeName);
+          setState(() {
+            _isLoading = false;
+          });
+          Navigator.of(context)
+              .pushReplacementNamed(HamburgerContainerScreen.routeName);
         });
       } catch (error) {
         await showDialog(

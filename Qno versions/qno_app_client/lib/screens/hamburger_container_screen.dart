@@ -12,7 +12,6 @@ import '../providers/auth.dart';
 
 //Screen Imports
 import '../screens/home_screen.dart';
-import '../screens/signup_screen.dart';
 import '../screens/how_to_screen.dart';
 
 class HamburgerContainerScreen extends StatefulWidget {
@@ -96,7 +95,16 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        textTheme: Theme.of(context).textTheme.copyWith(
+            headline6:
+                TextStyle(color: ThemeColors.purpleSwatch, fontSize: 20)),
+        centerTitle: true,
+        iconTheme: IconThemeData(
+          color: ThemeColors.purpleSwatch,
+        ),
         title: Text(_getScreenTitle()),
+        elevation: 0.0,
       ),
       drawer: Drawer(
         child: Column(
@@ -139,11 +147,6 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
             Expanded(
               child: Container(),
             ),
-            _listTileBuilder(
-                "Forgot your password?",
-                Icons.fingerprint,
-                () => onListTileClicked(Screen.forgotPassword),
-                Screen.forgotPassword),
             Divider(),
             _listTileBuilder("Logout", Icons.exit_to_app, () {
               Future.delayed(Duration.zero, () {
