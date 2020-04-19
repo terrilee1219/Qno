@@ -38,7 +38,8 @@ class NFCReader{
   }
 
   //Connect to server when tag tapped
-
+  //must increment the order number
+  //integrate seemlessly -> when does the order number generate and by who? i..e machine side
   Future<void> connectToServer() async{
     const url = "https://qno-technologies.firebaseio.com/hello_msg.json";
 

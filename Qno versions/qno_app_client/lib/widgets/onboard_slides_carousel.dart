@@ -43,7 +43,7 @@ class _OnboardSlidesCarouselState extends State<OnboardSlidesCarousel> {
         text,
         style: Theme.of(context)
             .textTheme
-            .headline5
+            .headline
             .copyWith(fontFamily: "Numans", color: ThemeColors.purpleSwatch),
       ),
     );
@@ -55,7 +55,7 @@ class _OnboardSlidesCarouselState extends State<OnboardSlidesCarousel> {
         margin: EdgeInsets.symmetric(horizontal: 40),
         child: Text(
           text,
-          style: Theme.of(context).textTheme.bodyText1.copyWith(
+          style: Theme.of(context).textTheme.body1.copyWith(
               fontFamily: "Lato", color: ThemeColors.lightGrey, fontSize: 14),
           textAlign: TextAlign.start,
         ));

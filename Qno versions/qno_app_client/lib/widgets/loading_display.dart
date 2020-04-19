@@ -21,14 +21,14 @@ class LoadingDisplay extends StatelessWidget {
                   "Signing you in!",
                   style: Theme.of(context)
                       .textTheme
-                      .headline5
+                      .headline
                       .copyWith(color: ThemeColors.purpleSwatch),
                 )
               : Text(
                   "Signing you up!",
                   style: Theme.of(context)
                       .textTheme
-                      .headline5
+                      .headline
                       .copyWith(color: ThemeColors.purpleSwatch),
                 ),
           SizedBox(
