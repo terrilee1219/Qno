@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import './constants/theme_colors.dart';
 
 //Screens
-
+import './screens/home_screen.dart';
 
 //Providers
 
@@ -28,13 +28,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: ThemeColors.purpleSwatch,
         ),
-        home: Container(
-          child: Center(
-            child: Text("Home"),
-          ),
-        ),
+        //home: HomeScreen(),
         routes: {
-          // Add screen routes here.
+          HomeScreen.routeName : (ctx) => HomeScreen(),
         },
     );
   }
