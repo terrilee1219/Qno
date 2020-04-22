@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
         title: "Qno",
         theme: ThemeData(
           primarySwatch: ThemeColors.purpleSwatch,
+          fontFamily: "Roboto"
         ),
         //home: HomeScreen(),
         routes: {

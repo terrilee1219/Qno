@@ -20,7 +20,7 @@ class ThemeColors{
   static const MaterialColor purpleSwatch = MaterialColor(0xFF4A14BC, _purpleOpacityDegrees);
 
   //Additional colors
-  static const Color lightGrey = Color(0xFF4B4B4B);
+  static const Color lightGrey = Color(0xFFE8E8E8);
 
 
 }
