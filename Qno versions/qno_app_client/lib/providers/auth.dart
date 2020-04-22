@@ -2,12 +2,17 @@
 //Package Imports
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:qnoclient/providers/database.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'database.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthService with ChangeNotifier {
   //Auth Variables
-  //String _fullName; Not being stored for now.
+  String _fullName; //Not being stored for now.
   String _userId;
   String _authToken;
   String _email;
@@ -23,6 +28,7 @@ class AuthService with ChangeNotifier {
       AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser _firebaseUser = result.user;
+      print(_firebaseUser.uid);
 
       //Assign other variables
       _getUserInformation(_firebaseUser);
@@ -33,9 +39,23 @@ class AuthService with ChangeNotifier {
 
   Future signUpWithEmail(String email, String password) async {
     try {
+
       AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser _firebaseUser = result.user;
+
+      final Firestore _db = Firestore.instance;
+      final FirebaseMessaging _fcm = FirebaseMessaging();
+
+      String uid = _firebaseUser.uid;
+      String fcmToken = await _fcm.getToken();
+
+      await DatabaseService(uid: uid).updateUserData( _firebaseUser.uid, 1);
+
+      if(fcmToken != null){
+        await DatabaseService(uid: uid).updateTokenData( _firebaseUser.uid, fcmToken);
+      }
+
 
       //Assign other variables
       _getUserInformation(_firebaseUser);
@@ -95,6 +115,7 @@ class AuthService with ChangeNotifier {
     }
   }
 
+
   Future _saveUserToPrefs() async {
     final prefs = await SharedPreferences.getInstance();
     final Map<String, String> userData = {
@@ -111,6 +132,8 @@ class AuthService with ChangeNotifier {
     prefs.clear();
   }
 
+  /// Get the token, save it to the database for current user
+
   Future _loadUserData() async {
     final prefs = await SharedPreferences.getInstance();
     if (!prefs.containsKey("userData")) {
@@ -124,4 +147,5 @@ class AuthService with ChangeNotifier {
     _password = extractedData['password'];
     return true;
   }
+
 }

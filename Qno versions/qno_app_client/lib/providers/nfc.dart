@@ -4,7 +4,7 @@ import 'dart:convert';
 class NFCReader{
 
   //Connect to server when tag tapped
-  Future<void> connectToServer(String tagContent) async{
+  Future<void> connectToServer() async{
     const url = "https://qno-technologies.firebaseio.com/hello_msg.json";
     print("Tag Contect: $tagContent");
 

@@ -1,7 +1,7 @@
 //Imports
 import 'package:flutter/material.dart';
 import 'package:qnoclient/constants/theme_colors.dart';
-import '../Modals/User.dart';
+import '../modals/User.dart';
 
 class SigninForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -34,6 +34,7 @@ class _SigninFormState extends State<SigninForm> {
       enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: ThemeColors.purpleSwatch, width: 1)),
       contentPadding: EdgeInsets.all(10),
     );
+
 
     return Form(
       key: widget.formKey,

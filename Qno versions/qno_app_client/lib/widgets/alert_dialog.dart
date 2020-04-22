@@ -15,7 +15,7 @@ class CustomAlertDialog extends StatelessWidget {
           messageTitle,
           style: Theme.of(context)
               .textTheme
-              .headline5
+              .headline
               .copyWith(color: ThemeColors.purpleSwatch),
         ),
       ),
