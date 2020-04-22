@@ -60,6 +60,7 @@ flutter:
     - assets/images/icon_guest.svg
     - assets/images/icon_twitter.svg
     - assets/images/icon_logo_nfc.svg
+    - assets/images/tick.svg
 
     #Slide images for the onboard tutorial
     - assets/images/slide_image_one.svg
