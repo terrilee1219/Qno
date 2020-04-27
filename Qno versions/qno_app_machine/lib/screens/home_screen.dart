@@ -1,6 +1,7 @@
 //Imports
 //Packages
 import 'package:flutter/material.dart';
+import '../widgets/list_container.dart';
 
 //Widgets
 import '../widgets/new_number_dialog.dart';
@@ -13,13 +14,18 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Center(
-          child: FlatButton(
-            onPressed: (){
-              showDialog(context: context, builder: (context) => NewNumberDialog());
-            },
-            child: Text("Popup"),
-          ),
+        child: Column(
+          children: <Widget>[
+            Center(
+              child: FlatButton(
+                onPressed: (){
+                  showDialog(context: context, builder: (context) => NewNumberDialog());
+                },
+                child: Text("Popup"),
+              ),
+            ),
+            ListContainer(),
+          ],
         ),
       ),
     );
