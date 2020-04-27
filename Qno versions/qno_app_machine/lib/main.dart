@@ -13,7 +13,7 @@ import './constants/theme_colors.dart';
 import './screens/home_screen.dart';
 
 //Providers
-
+import './providers/orders.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,16 +22,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "Qno",
-        theme: ThemeData(
-          primarySwatch: ThemeColors.purpleSwatch,
-          fontFamily: "Roboto"
-        ),
-        //home: HomeScreen(),
-        routes: {
-          HomeScreen.routeName : (ctx) => HomeScreen(),
-        },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: Orders())
+      ],
+      child: MaterialApp(
+          title: "Qno",
+          theme: ThemeData(
+            primarySwatch: ThemeColors.purpleSwatch,
+            fontFamily: "Roboto"
+          ),
+          //home: HomeScreen(),
+          routes: {
+            HomeScreen.routeName : (ctx) => HomeScreen(),
+          },
+      ),
     );
   }
 }

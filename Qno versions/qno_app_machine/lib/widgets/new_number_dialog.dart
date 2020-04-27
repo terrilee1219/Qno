@@ -1,5 +1,7 @@
 //Imports
 import 'package:flutter/material.dart';
+import 'package:machine/providers/orders.dart';
+import 'package:provider/provider.dart';
 import '../widgets/phone_number_input_field.dart';
 import '../widgets/numpad.dart';
 
@@ -26,19 +28,17 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
   String _errorText = "";
 
   bool validateInput() {
-    if (_currentNumberIndex == 0){
+    if (_currentNumberIndex == 0) {
       setState(() {
         _errorText = "The number cannot be left blank.";
       });
       return false;
-    }
-    else if (_currentNumberIndex != 9) {
+    } else if (_currentNumberIndex != 9) {
       setState(() {
         _errorText = "Please enter a valid number.";
       });
       return false;
-    }
-    else{
+    } else {
       return true;
     }
   }
@@ -73,6 +73,20 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
         });
       }
     }
+  }
+
+  String get phoneNumber {
+    String number = "+27 ";
+    for (int i = 0; i < _currentNumber.length; i++) {
+      //Add a space to the string
+      if (i == 2 || i == 5) {
+        number += " ";
+      }
+
+      number += _currentNumber[i];
+    }
+
+    return number;
   }
 
   @override
@@ -178,8 +192,10 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
                       )),
                     ),
                     onPressed: () {
-                      if(validateInput()){
-                        print(_currentNumber);
+                      if (validateInput()) {
+                        //If valid add to orders
+                        Provider.of<Orders>(context, listen: false)
+                            .addNewOrder(phoneNumber);
                         Navigator.of(context).pop();
                       }
                     },
