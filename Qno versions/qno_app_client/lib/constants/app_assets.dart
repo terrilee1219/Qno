@@ -6,6 +6,7 @@ class Assets{
   static const String facebookIcon = "assets/images/icon_facebook.svg";
   static const String guestIcon = "assets/images/icon_guest.svg";
   static const String nfcLogo = "assets/images/icon_logo_nfc.svg";
+  static const String tick = "assets/images/tick.svg";
 
 
   //Slider assets
