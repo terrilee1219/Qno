@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "813995162265",
+    "firebase_url": "https://qno-technologies.firebaseio.com",
+    "project_id": "qno-technologies",
+    "storage_bucket": "qno-technologies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813995162265:android:8d04a5f55f754eb8321608",
+        "android_client_info": {
+          "package_name": "com.qno.qnoclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813995162265-s03i7iv1at118q7i760gld98g7ib46o2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3lN9lBEOVc2B1HjTsHVd46nDEjJW1Yow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813995162265-s03i7iv1at118q7i760gld98g7ib46o2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813995162265:android:9c4369068db36838321608",
+        "android_client_info": {
+          "package_name": "com.qno.machine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813995162265-s03i7iv1at118q7i760gld98g7ib46o2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3lN9lBEOVc2B1HjTsHVd46nDEjJW1Yow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813995162265-s03i7iv1at118q7i760gld98g7ib46o2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
