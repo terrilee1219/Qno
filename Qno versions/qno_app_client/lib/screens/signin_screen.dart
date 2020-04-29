@@ -14,7 +14,7 @@ import '../widgets/social_media_buttons.dart';
 import '../widgets/loading_display.dart';
 
 //Modal Imports
-import '../Modals/User.dart';
+import '../modals/User.dart';
 
 //Screen Imports
 import './signup_screen.dart';

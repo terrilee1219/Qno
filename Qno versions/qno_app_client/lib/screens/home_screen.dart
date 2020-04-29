@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Text("Approach the Qno machine",
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline
                   .copyWith(color: Colors.black.withOpacity(0.6))),
           SizedBox(
             height: deviceSize.height * 0.1,
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Text("Welcome to Qno",
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline
                   .copyWith(color: Colors.black.withOpacity(0.6))),
           Container(
             width: 250,

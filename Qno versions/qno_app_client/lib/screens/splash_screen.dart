@@ -7,7 +7,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text(
-          "QNO", style: Theme.of(context).textTheme.headline5.copyWith(color: ThemeColors.purpleSwatch),
+          "QNO", style: Theme.of(context).textTheme.headline.copyWith(color: ThemeColors.purpleSwatch),
         ),
       ),
     );
