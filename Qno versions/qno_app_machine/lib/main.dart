@@ -32,10 +32,9 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
   //real data here
-  final itemsList = List<String>.generate(10, (n) => "073019561${n}");
+  final List<String>itemsList = ["0829035860"];
 
   ListView generateItemsList() {
     return ListView.builder(
