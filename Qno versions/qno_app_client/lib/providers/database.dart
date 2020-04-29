@@ -11,14 +11,15 @@ class DatabaseService extends StatefulWidget{
   final String uid;
   DatabaseService({this.uid});
 
-  final CollectionReference userCollection = Firestore.instance.collection('orders');
+  final CollectionReference userCollection = Firestore.instance.collection('info');
   final CollectionReference tokenCollection = Firestore.instance.collection('tokens');
 
-
-  Future updateUserData(String uid, int orderNo) async{
+  Future updateUserData(String uid, int phoneNo, String date, int orderNo) async{
     return await userCollection.document(uid).setData({
      // 'email': email,
       'user': uid,
+      'phoneNo': phoneNo,
+      'creationDate': date,
       'orderNo': orderNo
     });
   }
@@ -30,11 +31,10 @@ class DatabaseService extends StatefulWidget{
       'token': token
     });
   }
-
 }
 
 class _DatabaseServiceState extends State<DatabaseService> {
-  final Firestore _db = Firestore.instance;
+  //final Firestore _db = Firestore.instance;
   final FirebaseMessaging _fcm = FirebaseMessaging();
   @override
   void initState() {

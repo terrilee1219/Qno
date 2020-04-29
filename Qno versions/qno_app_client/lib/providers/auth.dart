@@ -6,6 +6,8 @@ import 'package:qnoclient/providers/database.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'database.dart';
+import 'dart:math';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -50,7 +52,19 @@ class AuthService with ChangeNotifier {
       String uid = _firebaseUser.uid;
       String fcmToken = await _fcm.getToken();
 
-      await DatabaseService(uid: uid).updateUserData( _firebaseUser.uid, 1);
+      var rndnumber = "";
+      var rng = new Random();
+      for (var i = 0; i < 10; i++) {
+        rndnumber = rndnumber + rng.nextInt(9).toString();
+      }
+      print(rndnumber);
+
+      var now = new DateTime.now();
+      var formatter = new DateFormat('yyyy-MM-dd');
+      String date = formatter.format(now);
+      print(date);
+
+      await DatabaseService(uid: uid).updateUserData( _firebaseUser.uid, int.parse(rndnumber), date, 1 );
 
       if(fcmToken != null){
         await DatabaseService(uid: uid).updateTokenData( _firebaseUser.uid, fcmToken);

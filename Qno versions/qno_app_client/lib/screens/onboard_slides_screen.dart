@@ -38,7 +38,7 @@ class OnboardScreen extends StatelessWidget {
               height: 45,
               child: Text(
                 "Sign up",
-                style: Theme.of(context).textTheme.headline6.copyWith(
+                style: Theme.of(context).textTheme.headline.copyWith(
                       fontFamily: "Numans",
                       color: Colors.white,
                     ),
@@ -57,7 +57,7 @@ class OnboardScreen extends StatelessWidget {
               height: 45,
               child: Text(
                 "Sign in",
-                style: Theme.of(context).textTheme.headline6.copyWith(
+                style: Theme.of(context).textTheme.headline.copyWith(
                       fontFamily: "Numans",
                       color: Colors.white,
                     ),

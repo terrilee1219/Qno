@@ -7,6 +7,7 @@ import '../constants/theme_colors.dart';
 import '../constants/theme_colors.dart';
 import '../constants/theme_colors.dart';
 import '../widgets/list_item.dart';
+import '../providers/orders.dart';
 
 //Constants
 import '../constants/theme_colors.dart';
@@ -31,6 +32,7 @@ class _ListContainerState extends State<ListContainer> {
           key: Key(widget.orders[index].orderId.toString()),
           direction: DismissDirection.startToEnd,
           onDismissed: (direction) {
+            Provider.of<Orders>(context, listen: false).writeUserData(widget.orders[index].phoneNumber.toString());
             setState(() {
               Provider.of<Orders>(context, listen: false).deleteOrder(index);
               print(index);

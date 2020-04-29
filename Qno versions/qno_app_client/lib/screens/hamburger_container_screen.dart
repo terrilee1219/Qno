@@ -56,7 +56,7 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
         },
         title: Text(
           text,
-          style: Theme.of(context).textTheme.headline6.copyWith(
+          style: Theme.of(context).textTheme.headline.copyWith(
               fontSize: 16,
               color: ThemeColors.lightGrey.withOpacity(0.8),
               fontFamily: 'Lato'),
@@ -97,7 +97,7 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         textTheme: Theme.of(context).textTheme.copyWith(
-            headline6:
+            headline:
                 TextStyle(color: ThemeColors.purpleSwatch, fontSize: 20)),
         centerTitle: true,
         iconTheme: IconThemeData(
@@ -122,7 +122,7 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
                       "Hello!",
                       style: Theme.of(context)
                           .textTheme
-                          .headline5
+                          .headline
                           .copyWith(color: Colors.white),
                     ),
                     SizedBox(
@@ -132,7 +132,7 @@ class _HamburgerContainerScreenState extends State<HamburgerContainerScreen> {
                       "Have a great day.",
                       style: Theme.of(context)
                           .textTheme
-                          .headline5
+                          .headline
                           .copyWith(color: Colors.white),
                     ),
                   ],

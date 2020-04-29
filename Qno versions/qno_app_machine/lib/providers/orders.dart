@@ -1,6 +1,8 @@
 //Imports
 import 'package:flutter/foundation.dart';
 import '../models/order.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class Orders with ChangeNotifier{
   //Orders Variables
@@ -21,6 +23,14 @@ class Orders with ChangeNotifier{
   void deleteOrder(int index){
     orders.removeAt(index);
     notifyListeners();
+  }
+
+  void  writeUserData (String phoneNo) async {
+    var now = new DateTime.now();
+    dynamic dateTime = new DateFormat("dd-MM-yyyy hh:mm:ss").format(now);
+
+    final db = Firestore.instance;
+    db.collection("requests").document().setData({"phoneNo": phoneNo, "subDate" : dateTime});
   }
 
 }

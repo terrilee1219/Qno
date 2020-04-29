@@ -27,8 +27,14 @@ dependencies:
   firebase_auth: ^0.15.5+3
   provider: ^4.0.4
   shared_preferences: ^0.5.6+3
+  intl: ^0.16.1
   nfc_in_flutter: ^2.0.4
   carousel_slider: ^1.4.1
+  firebase_messaging: ^6.0.13
+  cloud_firestore: ^0.12.9+5
+  firebase_admin: ^0.1.2
+  cloud_functions: ^0.4.2+3
+
   http: ^0.12.0+4
 
 
