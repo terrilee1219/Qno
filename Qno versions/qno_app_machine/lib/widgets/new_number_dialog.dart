@@ -60,7 +60,7 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
         //If they delete normally
       } else {
         setState(() {
-          _currentNumber[_currentNumberIndex] = "";
+          _currentNumber[_currentNumberIndex-1] = "";
           _currentNumberIndex -= 1;
         });
       }
@@ -122,7 +122,7 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
               "New Order",
               style: Theme.of(context)
                   .textTheme
-                  .headline5
+                  .headline4
                   .copyWith(color: Theme.of(context).primaryColor),
             ),
             SizedBox(

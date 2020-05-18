@@ -1,4 +1,5 @@
 //Imports
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/foundation.dart';
 import '../models/order.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -29,6 +30,8 @@ class Orders with ChangeNotifier{
     var now = new DateTime.now();
     dynamic dateTime = new DateFormat("dd-MM-yyyy hh:mm:ss").format(now);
 
+
+    //Call for web application cloud functions
     final db = Firestore.instance;
     db.collection("requests").document().setData({"phoneNo": phoneNo, "subDate" : dateTime});
   }
