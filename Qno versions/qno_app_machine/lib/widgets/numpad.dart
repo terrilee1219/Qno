@@ -1,6 +1,7 @@
 //Imports
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Numpad extends StatelessWidget {
   //Class Variables
@@ -12,7 +13,8 @@ class Numpad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Runtime variables
-    var size = MediaQuery.of(context).size;
+    ScreenUtil.init(context, width: 834, height: 1194, allowFontScaling: true);
+    double gapBetweenKeys = 40.w;
 
     return Container(
       child: Column(
@@ -28,14 +30,14 @@ class Numpad extends StatelessWidget {
                 keyType: NumpadKeyType.One,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
                 keyType: NumpadKeyType.Two,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
@@ -44,7 +46,7 @@ class Numpad extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 40,
+            height: gapBetweenKeys,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,14 +57,14 @@ class Numpad extends StatelessWidget {
                 keyType: NumpadKeyType.Four,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
                 keyType: NumpadKeyType.Five,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
@@ -71,7 +73,7 @@ class Numpad extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 40,
+            height: gapBetweenKeys,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,14 +84,14 @@ class Numpad extends StatelessWidget {
                 keyType: NumpadKeyType.Seven,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
                 keyType: NumpadKeyType.Eight,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
@@ -98,25 +100,25 @@ class Numpad extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 40,
+            height: gapBetweenKeys,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 70,
-                width: 70,
+                height: 70.w,
+                width: 70.w,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
                 keyType: NumpadKeyType.Zero,
               ),
               SizedBox(
-                width: 40,
+                width: gapBetweenKeys,
               ),
               NumpadKey(
                 onKeyTap: onKeyPressed,
@@ -179,16 +181,19 @@ class NumpadKey extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Runtime Variables
+    ScreenUtil.init(context, width: 834, height: 1194, allowFontScaling: true);
+
     return GestureDetector(
       onTap: () {
         onKeyTap(this.keyType);
       },
       child: Container(
-        height: 70,
-        width: 70,
+        height: 70.w,
+        width: 70.w,
         decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(10.w),
             boxShadow: [
               BoxShadow(
                   color: Colors.black.withOpacity(0.25),
@@ -200,13 +205,17 @@ class NumpadKey extends StatelessWidget {
               ? Icon(
                   Icons.backspace,
                   color: Colors.white,
+                  size: 25.w,
                 )
-              : Text(
-                  numpadKeyTypeToString(keyType),
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4
-                      .copyWith(color: Colors.white),
+              : FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    numpadKeyTypeToString(keyType),
+                    style: Theme.of(context).textTheme.headline4.copyWith(
+                        color: Colors.white,
+                        fontSize:
+                            ScreenUtil().setSp(34, allowFontScalingSelf: true)),
+                  ),
                 ),
         ),
       ),

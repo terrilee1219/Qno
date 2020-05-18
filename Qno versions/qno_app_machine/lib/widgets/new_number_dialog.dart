@@ -1,5 +1,6 @@
 //Imports
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:machine/providers/orders.dart';
 import 'package:provider/provider.dart';
 import '../widgets/phone_number_input_field.dart';
@@ -92,67 +93,54 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
   @override
   Widget build(BuildContext context) {
     //Runtime variables
-    var size = MediaQuery.of(context).size;
-
-    double getDynamicWidth(double portraitFactor, double landscapeFactor) {
-      return (MediaQuery.of(context).orientation == Orientation.landscape)
-          ? size.width * landscapeFactor
-          : size.width * portraitFactor;
-    }
-
-    double getDynamicHeight(double portraitFactor, double landscapeFactor) {
-      return (MediaQuery.of(context).orientation == Orientation.landscape)
-          ? size.height * landscapeFactor
-          : size.height * portraitFactor;
-    }
+    ScreenUtil.init(context, width: 834, height: 1194, allowFontScaling: true);
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
       child: Container(
-        width: getDynamicWidth(0.67, 0.48),
-        height: getDynamicHeight(0.60, 0.82),
+        width: 557.w,
+        height: 700.h,
         //color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: size.height * 0.015,
+              height: 15.h,
             ),
             Text(
               "New Order",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline4
-                  .copyWith(color: Theme.of(context).primaryColor),
+              style: Theme.of(context).textTheme.headline5.copyWith(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: ScreenUtil().setSp(24, allowFontScalingSelf: true)),
+
             ),
             SizedBox(
-              height: size.height * 0.03,
+              height: 30.h,
             ),
             PhoneNumberInputField(
-              width: getDynamicWidth(0.58, 0.40),
+              width: 482.w,
               currentNumber: _currentNumber,
             ),
             SizedBox(
-              height: size.height * 0.01,
+              height: 15.h,
             ),
             Text(
               _errorText,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.red),
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                  color: Colors.red,
+                  fontSize: ScreenUtil().setSp(20, allowFontScalingSelf: true)),
             ),
             SizedBox(
-              height: getDynamicHeight(0.032, 0.045),
+              height: 45.h,
             ),
             Numpad(
               onKeyPressed: numpadKeyPressed,
             ),
             SizedBox(
-              height: getDynamicHeight(0.05, 0.055),
+              height: 60.h,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,15 +148,15 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
                   FlatButton(
                     color: Theme.of(context).primaryColor,
                     child: Container(
-                      width: getDynamicWidth(0.15, 0.15),
-                      height: 45,
+                      width: 175.w,
+                      height: 45.h,
                       child: Center(
                           child: Text(
                         "Cancel",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5
-                            .copyWith(color: Colors.white),
+                        style: Theme.of(context).textTheme.headline5.copyWith(
+                            color: Colors.white,
+                            fontSize: ScreenUtil()
+                                .setSp(34, allowFontScalingSelf: true)),
                       )),
                     ),
                     onPressed: () {
@@ -180,15 +168,15 @@ class _NewNumberDialogState extends State<NewNumberDialog> {
                   FlatButton(
                     color: Theme.of(context).primaryColor,
                     child: Container(
-                      width: getDynamicWidth(0.15, 0.15),
-                      height: 45,
+                      width: 175.w,
+                      height: 45.h,
                       child: Center(
                           child: Text(
                         "Confirm",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5
-                            .copyWith(color: Colors.white),
+                        style: Theme.of(context).textTheme.headline5.copyWith(
+                            color: Colors.white,
+                            fontSize: ScreenUtil()
+                                .setSp(34, allowFontScalingSelf: true)),
                       )),
                     ),
                     onPressed: () {
